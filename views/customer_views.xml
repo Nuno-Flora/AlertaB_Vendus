@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_customer_tree" model="ir.ui.view">
+        <field name="name">vendus.customer.tree</field>
+        <field name="model">vendus.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Customers">
+                <field name="name"/>
+                <field name="vat"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_customer_form" model="ir.ui.view">
+        <field name="name">vendus.customer.form</field>
+        <field name="model">vendus.customer</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Customer">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="vat"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                    <group string="Address">
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="country_id"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_customer_search" model="ir.ui.view">
+        <field name="name">vendus.customer.search</field>
+        <field name="model">vendus.customer</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Customers">
+                <field name="name"/>
+                <field name="vat"/>
+                <field name="city"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_customers" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">vendus.customer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_customer_tree"/>
+        <field name="search_view_id" ref="view_vendus_customer_search"/>
+    </record>
+</odoo>

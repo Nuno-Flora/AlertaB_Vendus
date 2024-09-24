@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_document_tree" model="ir.ui.view">
+        <field name="name">vendus.document.tree</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Documents">
+                <field name="document_number"/>
+                <field name="date"/>
+                <field name="customer_id"/>
+                <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="state"/>
+                <field name="document_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_document_form" model="ir.ui.view">
+        <field name="name">vendus.document.form</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Document">
+                <sheet>
+                    <group>
+                        <field name="document_number"/>
+                        <field name="date"/>
+                        <field name="customer_id"/>
+                        <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="state"/>
+                        <field name="document_type"/>
+                    </group>
+                    <group>
+                        <field name="atcud"/>
+                        <field name="hash"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_document_search" model="ir.ui.view">
+        <field name="name">vendus.document.search</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Documents">
+                <field name="date"/>
+                <field name="customer_id"/>
+                <field name="state"/>
+                <field name="document_type"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_documents" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">vendus.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_document_tree"/>
+        <field name="search_view_id" ref="view_vendus_document_search"/>
+    </record>
+</odoo>

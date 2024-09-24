@@ -1,0 +1,40 @@
+<odoo>
+    <!--
+        This is a cron job which will be executed every hour.
+        It will call the `sync_all` method of the `vendus.sync` model.
+        This method will sync all data from Vendus with Odoo.
+    -->
+    <record id="ir_cron_sync" model="ir.cron">
+        <field name="name">Sync Vendus Data</field>
+        <!--
+            This is the model which will be used to sync the data.
+            In this case, it's the `vendus.sync` model.
+        -->
+        <field name="model_id" ref="model_vendus.sync"/>
+        <!--
+            This is the state of the cron job. It can be either "code" or "model_id".
+            In this case, it's "code" because we're going to execute a Python code.
+        -->
+        <field name="state">code</field>
+        <!--
+            This is the Python code that will be executed when the cron job is run.
+            In this case, it's a call to the `sync_all` method of the `vendus.sync` model.
+        -->
+        <field name="code">model.sync_all()</field>
+        <!--
+            This is the interval at which the cron job will be executed.
+            In this case, it's every hour.
+        -->
+        <field name="interval_number">1</field>
+        <!--
+            This is the unit of time for the interval.
+            In this case, it's hours.
+        -->
+        <field name="interval_type">hours</field>
+        <!--
+            This is a boolean indicating whether the cron job is active or not.
+            In this case, it's active.
+        -->
+        <field name="active">True</field>
+    </record>
+</odoo>

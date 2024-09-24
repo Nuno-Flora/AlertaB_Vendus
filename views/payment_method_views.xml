@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_payment_method_tree" model="ir.ui.view">
+        <field name="name">vendus.payment.method.tree</field>
+        <field name="model">vendus.payment.method</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Payment Methods">
+                <field name="name"/>
+                <field name="payment_type"/>
+                <field name="status"/>
+                <field name="allows_change"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_payment_method_form" model="ir.ui.view">
+        <field name="name">vendus.payment.method.form</field>
+        <field name="model">vendus.payment.method</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Payment Method">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="payment_type"/>
+                        <field name="status"/>
+                        <field name="allows_change"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_payment_method_search" model="ir.ui.view">
+        <field name="name">vendus.payment.method.search</field>
+        <field name="model">vendus.payment.method</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Payment Methods">
+                <field name="name"/>
+                <field name="payment_type"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_payment_methods" model="ir.actions.act_window">
+        <field name="name">Payment Methods</field>
+        <field name="res_model">vendus.payment.method</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_payment_method_tree"/>
+        <field name="search_view_id" ref="view_vendus_payment_method_search"/>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_supplier_tree" model="ir.ui.view">
+        <field name="name">vendus.supplier.tree</field>
+        <field name="model">vendus.supplier</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Suppliers">
+                <field name="name"/>
+                <field name="contact_name"/>
+                <field name="city"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_supplier_form" model="ir.ui.view">
+        <field name="name">vendus.supplier.form</field>
+        <field name="model">vendus.supplier</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Supplier">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="contact_name"/>
+                    </group>
+                    <group string="Address">
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="country_id"/>
+                    </group>
+                    <group string="Contact">
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_supplier_search" model="ir.ui.view">
+        <field name="name">vendus.supplier.search</field>
+        <field name="model">vendus.supplier</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Suppliers">
+                <field name="name"/>
+                <field name="city"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_suppliers" model="ir.actions.act_window">
+        <field name="name">Suppliers</field>
+        <field name="res_model">vendus.supplier</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_supplier_tree"/>
+        <field name="search_view_id" ref="view_vendus_supplier_search"/>
+    </record>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_config_settings_vendus_form" model="ir.ui.view">
+        <field name="name">res.config.settings.vendus.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='settings_container']" position="inside">
+                <div class="app_settings_block" data-string="Vendus Integration" string="Vendus Integration">
+                    <h2>Vendus Integration Settings</h2>
+                    <group>
+                        <field name="vendus_api_key" password="True"/>
+                        <field name="vendus_api_url"/>
+                    </group>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_settings" model="ir.actions.act_window">
+        <field name="name">Vendus Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_res_config_settings_vendus_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

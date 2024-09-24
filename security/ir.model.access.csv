@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vendus_product_user,access_vendus_product_user,model_vendus_product,account.group_account_user,1,1,1,1
+access_vendus_customer_user,access_vendus_customer_user,model_vendus_customer,account.group_account_user,1,1,1,1
+access_vendus_document_user,access_vendus_document_user,model_vendus_document,account.group_account_user,1,1,1,1
+access_vendus_payment_method_user,access_vendus_payment_method_user,model_vendus_payment_method,account.group_account_user,1,1,1,1
+access_vendus_store_user,access_vendus_store_user,model_vendus_store,account.group_account_user,1,1,1,1
+access_vendus_supplier_user,access_vendus_supplier_user,model_vendus_supplier,account.group_account_user,1,1,1,1
+access_vendus_room_user,access_vendus_room_user,model_vendus_room,account.group_account_user,1,1,1,1
+access_vendus_table_user,access_vendus_table_user,model_vendus_table,account.group_account_user,1,1,1,1

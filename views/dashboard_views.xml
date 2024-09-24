@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Kanban View -->
+    <record id="view_vendus_dashboard_kanban" model="ir.ui.view">
+        <field name="name">vendus.dashboard.kanban</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="document_type">
+                <field name="document_type"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_title">
+                                <strong><field name="document_number"/></strong>
+                            </div>
+                            <div>
+                                <span>Date: <field name="date"/></span>
+                            </div>
+                            <div>
+                                <span>Customer: <field name="customer_id"/></span>
+                            </div>
+                            <div>
+                                <span>Total: <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/></span>
+                            </div>
+                            <div>
+                                <span>Status: <field name="state"/></span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Graph Views -->
+    <!-- Total Sales Over Time -->
+    <record id="view_vendus_sales_over_time_graph" model="ir.ui.view">
+        <field name="name">vendus.sales.over.time.graph</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <graph string="Total Sales Over Time" type="line">
+                <field name="date" interval="day" type="row"/>
+                <field name="total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Sales by Product Category -->
+    <record id="view_vendus_sales_by_category_graph" model="ir.ui.view">
+        <field name="name">vendus.sales.by.category.graph</field>
+        <field name="model">vendus.document.line</field>
+        <field name="arch" type="xml">
+            <graph string="Sales by Product Category" type="bar">
+                <field name="product_id.categ_id" type="row"/>
+                <field name="price_subtotal" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Sales by Payment Method -->
+    <record id="view_vendus_sales_by_payment_method_graph" model="ir.ui.view">
+        <field name="name">vendus.sales.by.payment.method.graph</field>
+        <field name="model">vendus.document</field>
+        <field name="arch" type="xml">
+            <graph string="Sales by Payment Method" type="pie">
+                <field name="payment_method_id" type="row"/>
+                <field name="total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">vendus.document</field>
+        <field name="view_mode">kanban,graph</field>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_vendus_dashboard_kanban')})]"/>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_product_tree" model="ir.ui.view">
+        <field name="name">vendus.product.tree</field>
+        <field name="model">vendus.product</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Products">
+                <field name="name"/>
+                <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="default_code"/>
+                <field name="product_type"/>
+                <field name="tax_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_product_form" model="ir.ui.view">
+        <field name="name">vendus.product.form</field>
+        <field name="model">vendus.product</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Product">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="default_code"/>
+                        <field name="product_type"/>
+                    </group>
+                    <group string="Pricing">
+                        <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="tax_id"/>
+                    </group>
+                    <group string="SAF-T">
+                        <field name="saft_product_type"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_product_search" model="ir.ui.view">
+        <field name="name">vendus.product.search</field>
+        <field name="model">vendus.product</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Products">
+                <field name="name"/>
+                <field name="default_code"/>
+                <field name="product_type"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_products" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">vendus.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_product_tree"/>
+        <field name="search_view_id" ref="view_vendus_product_search"/>
+    </record>
+</odoo>

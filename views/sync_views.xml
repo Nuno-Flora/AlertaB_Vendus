@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_vendus_sync_form" model="ir.ui.view">
+        <field name="name">vendus.sync.form</field>
+        <field name="model">vendus.sync</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Synchronization">
+                <sheet>
+                    <group>
+                        <field name="entity_name" readonly="1"/>
+                        <field name="last_sync_date" readonly="1"/>
+                        <field name="sync_status" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_manual_sync" type="object" string="Sync Now" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_sync" model="ir.actions.act_window">
+        <field name="name">Synchronization</field>
+        <field name="res_model">vendus.sync</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_vendus_sync_form"/>
+    </record>
+</odoo>

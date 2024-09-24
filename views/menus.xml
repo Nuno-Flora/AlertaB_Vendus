@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_vendus_root" name="Vendus Integration" sequence="10"/>
+
+    <!-- Dashboard Menu -->
+    <menuitem id="menu_vendus_dashboard" name="Dashboard" parent="menu_vendus_root" action="action_vendus_dashboard" sequence="10"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_vendus_documents" name="Documents" parent="menu_vendus_root" action="action_vendus_documents" sequence="20"/>
+    <menuitem id="menu_vendus_customers" name="Customers" parent="menu_vendus_root" action="action_vendus_customers" sequence="30"/>
+    <menuitem id="menu_vendus_products" name="Products" parent="menu_vendus_root" action="action_vendus_products" sequence="40"/>
+    <menuitem id="menu_vendus_payment_methods" name="Payment Methods" parent="menu_vendus_root" action="action_vendus_payment_methods" sequence="50"/>
+    <menuitem id="menu_vendus_stores" name="Stores" parent="menu_vendus_root" action="action_vendus_stores" sequence="60"/>
+    <menuitem id="menu_vendus_suppliers" name="Suppliers" parent="menu_vendus_root" action="action_vendus_suppliers" sequence="70"/>
+    <menuitem id="menu_vendus_rooms" name="Rooms" parent="menu_vendus_root" action="action_vendus_rooms" sequence="80"/>
+    <menuitem id="menu_vendus_tables" name="Tables" parent="menu_vendus_root" action="action_vendus_tables" sequence="90"/>
+    <menuitem id="menu_vendus_sync" name="Synchronization" parent="menu_vendus_root" action="action_vendus_sync" sequence="100"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_vendus_configuration" name="Configuration" parent="menu_vendus_root" sequence="110"/>
+    <menuitem id="menu_vendus_settings" name="Settings" parent="menu_vendus_configuration" action="action_vendus_settings" sequence="120"/>
+</odoo>

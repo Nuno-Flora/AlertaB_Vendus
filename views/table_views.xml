@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_table_tree" model="ir.ui.view">
+        <field name="name">vendus.table.tree</field>
+        <field name="model">vendus.table</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Tables">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_table_form" model="ir.ui.view">
+        <field name="name">vendus.table.form</field>
+        <field name="model">vendus.table</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Table">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                        <field name="status"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_table_search" model="ir.ui.view">
+        <field name="name">vendus.table.search</field>
+        <field name="model">vendus.table</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Tables">
+                <field name="name"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_tables" model="ir.actions.act_window">
+        <field name="name">Tables</field>
+        <field name="res_model">vendus.table</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_table_tree"/>
+        <field name="search_view_id" ref="view_vendus_table_search"/>
+    </record>
+</odoo>

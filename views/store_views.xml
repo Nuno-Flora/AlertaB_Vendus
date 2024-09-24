@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_store_tree" model="ir.ui.view">
+        <field name="name">vendus.store.tree</field>
+        <field name="model">vendus.store</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Stores">
+                <field name="name"/>
+                <field name="store_type"/>
+                <field name="city"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_store_form" model="ir.ui.view">
+        <field name="name">vendus.store.form</field>
+        <field name="model">vendus.store</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Store">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="store_type"/>
+                        <field name="status"/>
+                    </group>
+                    <group string="Address">
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="country_id"/>
+                    </group>
+                    <group string="Contact">
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_store_search" model="ir.ui.view">
+        <field name="name">vendus.store.search</field>
+        <field name="model">vendus.store</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Stores">
+                <field name="name"/>
+                <field name="store_type"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_stores" model="ir.actions.act_window">
+        <field name="name">Stores</field>
+        <field name="res_model">vendus.store</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_store_tree"/>
+        <field name="search_view_id" ref="view_vendus_store_search"/>
+    </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_saft_import_wizard_form" model="ir.ui.view">
+        <field name="name">account.saft.import.wizard.form</field>
+        <field name="model">account.saft.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import SAF-T File">
+                <group>
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    <field name="attachment_id" widget="binary" filename="attachment_name" required="1"/>
+                    <field name="attachment_name" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Import" name="import_file" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_saft_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import SAF-T File</field>
+        <field name="res_model">account.saft.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_saft_import_wizard_form"/>
+    </record>
+
+    <!-- Add menu item for the SAF-T import wizard -->
+    <menuitem id="menu_saft_import_wizard"
+              name="Import SAF-T"
+              parent="account.menu_finance_configuration"
+              action="action_saft_import_wizard"
+              sequence="100"/>
+</odoo>

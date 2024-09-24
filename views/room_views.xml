@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_vendus_room_tree" model="ir.ui.view">
+        <field name="name">vendus.room.tree</field>
+        <field name="model">vendus.room</field>
+        <field name="arch" type="xml">
+            <tree string="Vendus Rooms">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_vendus_room_form" model="ir.ui.view">
+        <field name="name">vendus.room.form</field>
+        <field name="model">vendus.room</field>
+        <field name="arch" type="xml">
+            <form string="Vendus Room">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                        <field name="status"/>
+                    </group>
+                    <!-- Include other necessary fields -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_vendus_room_search" model="ir.ui.view">
+        <field name="name">vendus.room.search</field>
+        <field name="model">vendus.room</field>
+        <field name="arch" type="xml">
+            <search string="Vendus Rooms">
+                <field name="name"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vendus_rooms" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="res_model">vendus.room</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vendus_room_tree"/>
+        <field name="search_view_id" ref="view_vendus_room_search"/>
+    </record>
+</odoo>
